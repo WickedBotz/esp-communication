@@ -15,6 +15,9 @@ const int webSocketPort = 81;
 const size_t JSON_BUFFER_SIZE = JSON_OBJECT_SIZE(9) + JSON_ARRAY_SIZE(1) + JSON_OBJECT_SIZE(2);
 WebSocketsServer webSocket = WebSocketsServer(webSocketPort);
 
+void JsonConvert() {
+  
+}
 void postTimeKeeping() {
   HTTPClient http;
   // Cria um objeto JSON
@@ -52,6 +55,7 @@ void postTimeKeeping() {
 
   http.end();
 }
+
 void webSocketEvent(uint8_t num, WStype_t type, uint8_t* payload, size_t length) {
   switch (type) {
     case WStype_DISCONNECTED:
