@@ -7,10 +7,10 @@ void UartLibrary::setup() {
   uart.begin(115200, SERIAL_8N1, rxPin, txPin);
 }
 
-void UartLibrary::readMessage() {
+String UartLibrary::readMessage() {
   if (uart.available()) {
-    String receivedData = uart.readStringUntil('\n');
-    Serial.println(receivedData);
+    String receivedData = uart.readString();
+    return receivedData;
   }
 }
 

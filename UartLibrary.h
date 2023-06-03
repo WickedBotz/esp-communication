@@ -9,7 +9,7 @@ public:
   UartLibrary(int rxPin, int txPin);
   
   void setup();
-  void readMessage();
+  String readMessage();
   void writeMessage(const String& message);
 
 private:

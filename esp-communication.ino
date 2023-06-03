@@ -9,8 +9,8 @@
 
 UartLibrary uartInstance(RX_PIN, TX_PIN);
 
-const char* ssid = "WickedBotz";
-const char* password = "wickedbotz";
+const char* ssid = "a";
+const char* password = "japa3211";
 const int webSocketPort = 81;
 const size_t JSON_BUFFER_SIZE = JSON_OBJECT_SIZE(9) + JSON_ARRAY_SIZE(1) + JSON_OBJECT_SIZE(2);
 WebSocketsServer webSocket = WebSocketsServer(webSocketPort);
@@ -72,10 +72,8 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t* payload, size_t length)
         Serial.printf("[%u] Mensagem recebida: %s\n", num, payload);
         size_t payloadSize = length; // Usar o tamanho fornecido pelo parâmetro 'length'
         String payloadString(reinterpret_cast<const char*>(payload), payloadSize);
-        Serial.print("Printando?????");
         Serial.print(payloadString);
         uartInstance.writeMessage(payloadString);
-        uartInstance.readMessage();
         webSocket.sendTXT(num, "Mensagem recebida com sucesso!");
       }
       break;
